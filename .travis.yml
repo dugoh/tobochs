@@ -4,6 +4,8 @@ addons:
     - libncurses5-dev
 script:
   - git clone https://github.com/svn2github/bochs.git
-  - ls -ltra
-  - cd bochs
-  - ls -ltra
+  - cd bochs/bochs
+  - ./configure --prefix=$HOME --enable-cpu-level=3 --enable-ne2000 --with-term --with-nogui --enable-all-optimizations --enable-docbook=no
+  - make
+  - make install
+
