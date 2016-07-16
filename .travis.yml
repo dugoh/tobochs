@@ -1,0 +1,7 @@
+addons:
+  apt:
+    packages:
+    - libncurses5-dev
+script:
+  - git clone https://github.com/svn2github/bochs.git
+  - ls -l
