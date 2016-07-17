@@ -1,3 +1,5 @@
+sudo: required
+dist: trusty
 addons:
   apt:
     packages:
@@ -8,4 +10,4 @@ script:
   - ./configure --prefix=$HOME --enable-cpu-level=3 --enable-ne2000 --with-term --with-nogui --enable-all-optimizations --enable-docbook=no
   - make
   - make install
-
+  - sudo ls -ltra /root/
