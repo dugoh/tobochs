@@ -24,3 +24,4 @@ script:
   - cat out
   - echo .
   - cat tunconfig.log
+  - ps -ef
