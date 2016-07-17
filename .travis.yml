@@ -6,6 +6,7 @@ addons:
     - libncurses5-dev
     - vsftpd
     - uml-utilities
+    - strace
 script:
   - pwd
   - echo $HOME
@@ -24,5 +25,5 @@ script:
   - ls -ltr /dev/net/t*
   - sudo iptables -L
   - sudo cat /proc/sys/net/ipv4/ip_forward
-  - TERM=vt100 ~/bin/bochs -f bochsrc -q
+  - strace ~/bin/bochs -f bochsrc -q
   - cat tunconfig.log
