@@ -25,6 +25,8 @@ script:
 #  - ls -ltr /dev/net/t*
 #  - sudo iptables -L
 #  - sudo cat /proc/sys/net/ipv4/ip_forward
-  - sudo setcap cap_net_admin,cap_net_raw=eip ~/bin/bochs
-  - strace ~/bin/bochs -f bochsrc -q
+  - sudo setcap CAP_NET_ADMIN=eip ~/bin/bochs
+  - sudo getcap ~/bin/bochs
+  - set|grep "^LD_"
+  - ~/bin/bochs -f bochsrc -q
   - cat tunconfig.log
