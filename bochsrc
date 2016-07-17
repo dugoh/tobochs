@@ -16,7 +16,7 @@ error: action=report
 info: action=report
 debug: action=ignore
 #vga_update_interval: 400000
-keyboard_serial_delay: 250
+#keyboard_serial_delay: 250
 keyboard_paste_delay: 2991000
 mouse: enabled=0
 private_colormap: enabled=0
