@@ -12,9 +12,9 @@ script:
   - echo $HOME
   - git clone --depth 1 https://github.com/svn2github/bochs.git
   - cd bochs/bochs
-  - ./configure --prefix=$HOME --enable-cpu-level=3 --enable-ne2000 --with-term --with-nogui --enable-all-optimizations --enable-docbook=no
+  - ./configure --enable-cpu-level=3 --enable-ne2000 --with-term --with-nogui --enable-all-optimizations --enable-docbook=no
   - make
-  - make install
+  - sudo make install
   - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |~/bin/bximage
 #  - sudo ln -s /dev/net/tun /dev/net/tun0
@@ -25,8 +25,8 @@ script:
 #  - ls -ltr /dev/net/t*
 #  - sudo iptables -L
 #  - sudo cat /proc/sys/net/ipv4/ip_forward
-  - sudo setcap CAP_NET_ADMIN=eip ~/bin/bochs
-  - sudo getcap ~/bin/bochs
+  - sudo setcap CAP_NET_ADMIN,CAP_NET_RAW=eip /usr/local/bin/bochs
+  - sudo getcap /usr/local/bin/bochs
   - set|grep "^LD_"
-  - ~/bin/bochs -f bochsrc -q
+  - bochs -f bochsrc -q
   - cat tunconfig.log
