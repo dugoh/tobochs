@@ -19,7 +19,7 @@ script:
   - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
   - >out
-  - (until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./1)|TERM=vt100 bochs -q -f bochsrc|tee -a out        
+  - ./do1
   - echo .
   - cat out
   - echo .
