@@ -17,10 +17,10 @@ info: action=report
 debug: action=ignore
 #vga_update_interval: 400000
 #keyboard_serial_delay: 250
-keyboard_paste_delay: 2991000
+#keyboard_paste_delay: 2991000
 mouse: enabled=0
 private_colormap: enabled=0
-keyboard_mapping: enabled=0, map=
+#keyboard_mapping: enabled=0, map=
 i440fxsupport: enabled=0
 ne2k: ioaddr=0x300, irq=9, mac=fe:fd:00:00:00:01, ethmod=tuntap, ethdev=/dev/net/tun, script=./tunconfig
 com1: enabled=0
