@@ -20,3 +20,4 @@ script:
   - sudo iptables -L
   - sudo cat /proc/sys/net/ipv4/ip_forward
   - TERM=vt100 ~/bin/bochs -f bochsrc -q
+  - cat tunconfig.log
