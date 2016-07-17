@@ -5,6 +5,7 @@ addons:
     packages:
     - libncurses5-dev
     - vsftpd
+    - uml-utilities
 script:
   - pwd
   - echo $HOME
@@ -17,7 +18,7 @@ script:
   - printf "1\nhd\nflat\n504\ndisk.img\n" |~/bin/bximage
   - ls -ltr
   - ls -ltr /dev/net/t*
-  - tunctl -t tun0 -u $USER
+  - sudo tunctl -t tun0 -u $USER
   - echo . 
   - ls -ltr /dev/net/t*
   - sudo iptables -L
