@@ -21,7 +21,7 @@ debug: action=ignore
 mouse: enabled=0
 private_colormap: enabled=0
 #keyboard_mapping: enabled=0, map=
-i440fxsupport: enabled=0
+#i440fxsupport: enabled=0
 ne2k: ioaddr=0x300, irq=9, mac=fe:fd:00:00:00:01, ethmod=tuntap, ethdev=/dev/net/tun, script=./tunconfig
 com1: enabled=0
 #com1: enabled=1, mode=file, dev=serial.out
