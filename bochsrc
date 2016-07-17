@@ -1,9 +1,9 @@
 config_interface: textconfig
 display_library: term
-romimage: file=./share/bochs/BIOS-bochs-legacy
+romimage: file=BIOS-bochs-legacy
 cpu: count=1, ips=80000000, reset_on_triple_fault=0
 megs: 8
-vgaromimage: file=./share/bochs/VGABIOS-lgpl-latest
+vgaromimage: file=VGABIOS-lgpl-latest
 vga: extension=none
 floppya: 1_44=boot.img, status=inserted
 ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
