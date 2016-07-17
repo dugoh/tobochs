@@ -15,18 +15,12 @@ script:
   - ./configure --enable-cpu-level=3 --enable-ne2000 --with-term --with-nogui --enable-all-optimizations --enable-docbook=no
   - make
   - sudo make install
+  - sudo setcap CAP_NET_ADMIN,CAP_NET_RAW=eip /usr/local/bin/bochs
   - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
-#  - sudo ln -s /dev/net/tun /dev/net/tun0
-#  - ls -ltr /dev/net/t*
-#  - sudo tunctl -t tun0 -u $USER
-#  - sudo tunctl -t tun -u $USER
-#  - echo . 
-#  - ls -ltr /dev/net/t*
-#  - sudo iptables -L
-#  - sudo cat /proc/sys/net/ipv4/ip_forward
-  - sudo setcap CAP_NET_ADMIN,CAP_NET_RAW=eip /usr/local/bin/bochs
-  - sudo getcap /usr/local/bin/bochs
-  - set|grep "^LD_"
-  - bochs -f bochsrc -q
+  - >out
+  - (until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./1)|TERM=vt100 bochs -q -f bochsrc|tee -a out        
+  - echo .
+  - cat out
+  - echo .
   - cat tunconfig.log
