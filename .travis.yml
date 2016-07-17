@@ -6,12 +6,14 @@ addons:
     - libncurses5-dev
     - vsftpd
 script:
+  - pwd
+  - echo $HOME
   - git clone https://github.com/svn2github/bochs.git
   - cd bochs/bochs
   - ./configure --prefix=$HOME --enable-cpu-level=3 --enable-ne2000 --with-term --with-nogui --enable-all-optimizations --enable-docbook=no
   - make
   - make install
-  - cd
+  - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bin/bximage
   - ls -ltr
   - ls -ltr /dev/net/tun
