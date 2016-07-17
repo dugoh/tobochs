@@ -16,7 +16,7 @@ script:
   - make
   - sudo make install
   - cd ../../
-  - printf "1\nhd\nflat\n504\ndisk.img\n" |~/bin/bximage
+  - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
 #  - sudo ln -s /dev/net/tun /dev/net/tun0
 #  - ls -ltr /dev/net/t*
 #  - sudo tunctl -t tun0 -u $USER
