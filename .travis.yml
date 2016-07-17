@@ -18,7 +18,7 @@ script:
   - sudo setcap CAP_NET_ADMIN,CAP_NET_RAW=eip /usr/local/bin/bochs
   - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
-  - >out
+  - touch out
   - ./do1
   - echo .
   - cat out
