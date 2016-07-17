@@ -12,7 +12,7 @@ script:
   - make
   - make install
   - cd
-  - printf "hd\nflat\n504\ndisk.img\n" |bin/bximage
+  - printf "1\nhd\nflat\n504\ndisk.img\n" |bin/bximage
   - ls -ltr
   - ls -ltr /dev/net/tun
   - sudo iptables -L
