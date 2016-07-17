@@ -14,3 +14,4 @@ script:
   - sudo ls -ltra /root/
   - sudo iptables -L
   - sudo ifconfig -a
+  - sudo cat /proc/sys/net/ipv4/ip_forward

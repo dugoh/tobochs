@@ -1,9 +1,9 @@
 config_interface: textconfig
 display_library: term
-romimage: file=/usr/local/share/bochs/BIOS-bochs-legacy
+romimage: file=./share/bochs/BIOS-bochs-legacy
 cpu: count=1, ips=80000000, reset_on_triple_fault=0
 megs: 8
-vgaromimage: file=/usr/local/share/bochs/VGABIOS-lgpl-latest
+vgaromimage: file=./share/bochs/VGABIOS-lgpl-latest
 vga: extension=none
 floppya: 1_44=boot.img, status=inserted
 ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
@@ -22,7 +22,7 @@ mouse: enabled=0
 private_colormap: enabled=0
 keyboard_mapping: enabled=0, map=
 i440fxsupport: enabled=0
-ne2k: ioaddr=0x300, irq=9, mac=fe:fd:00:00:00:01, ethmod=tuntap, ethdev=/dev/net/tun0, script=./tunconfig
+ne2k: ioaddr=0x300, irq=9, mac=fe:fd:00:00:00:01, ethmod=tuntap, ethdev=/dev/net/tun, script=./tunconfig
 com1: enabled=0
 #com1: enabled=1, mode=file, dev=serial.out
 clock: time0=711244800
