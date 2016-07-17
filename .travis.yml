@@ -16,7 +16,10 @@ script:
   - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |~/bin/bximage
   - ls -ltr
-  - ls -ltr /dev/net/tun
+  - ls -ltr /dev/net/t*
+  - tunctl -t tun0 -u $USER
+  - echo . 
+  - ls -ltr /dev/net/t*
   - sudo iptables -L
   - sudo cat /proc/sys/net/ipv4/ip_forward
   - TERM=vt100 ~/bin/bochs -f bochsrc -q
