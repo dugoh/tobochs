@@ -1,1 +1,0 @@
-(until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./1)|TERM=vt100 bochs -q -f bochsrc|tee -a out

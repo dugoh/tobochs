@@ -5,7 +5,6 @@ addons:
     packages:
     - libncurses5-dev
     - vsftpd
-    - uml-utilities
     - strace
 script:
   - pwd
@@ -19,7 +18,7 @@ script:
   - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
   - touch out
-  - ./do1
+  - (until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./1)|TERM=vt100 bochs -q -f bochsrc|tee -a out
   - echo .
   - cat out
   - echo .
