@@ -5,8 +5,8 @@ addons:
     packages:
     - libncurses5-dev
     - vsftpd
-    - strace
 script:
+  - ./01*
   - sudo ls -ld /srv/ftp
   - git clone --depth 1 https://github.com/svn2github/bochs.git
   - cd bochs/bochs
