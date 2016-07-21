@@ -10,7 +10,12 @@ script:
   - ./01*
   - ./02*
   - ./03*
+  - echo anonymous_enable=Yes
+  - grep ftp /etc/passwd
+  - ls -l /srv/ftp
+  - sudo restart vsftpd
   - sudo ls -ld /srv/ftp
+  - pwd
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
   - touch out
   - (until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./_1 4 1)|TERM=vt100 bochs -q -f bochsrc|tee -a out
