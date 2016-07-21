@@ -1,42 +1,15 @@
-function check {
-  echo -ne "$*\t"
-}
-
-function ok {
-  echo -e "[ \e[38;5;32msuccess\e[0m ]"
-}
-
-function nok {
-  echo -e "[ \e[38;5;31mfailure\e[0m ]"
-  (( noks = noks + 1 ))
-}
-
-function warn {
-  echo -e "[ \e[38;5;33mwarning\e[0m ]"
-}
-
-function format {
-  awk -F'\t' '{ printf "%-50s %s\n",$1,$2 }'
-}
-
-function slowcat {
-[[ -z "${3}" ]] && echo usage: $0 file chunksize waittime && return 1
-  local c=0
-  local b=$(wc -c <${1})
-    while [ ${c} -lt ${b} ]; do
-    dd if=${1} bs=1 count=${2} skip=${c} 2>/dev/null
-    (( c = c + ${2} ))
-    sleep ${3}
-  done
-}
-
-
+. lib/functions
+bochs_src=https://github.com/svn2github/bochs.git
 noks=0
+
 (\
-check checking wget; wget --help >/dev/null && ok || nok
-check some looooooooooooong explaination; false && ok || nok
-check something vague; warn
-check long job
+check checking wget;            wget --help                      >/dev/null 2>&1 && ok || nok
+check checking gcc;             gcc --version                    >/dev/null 2>&1 && ok || nok
+check checking gcc-c++;         g++ --version                    >/dev/null 2>&1 && ok || nok
+check checking ncurses;         ls -l /usr/include/ncurses.h     >/dev/null 2>&1 && ok || nok
+check checking vsftpd;          ps -ef|grep -qv [v]sftpd         >/dev/null 2>&1 && ok || nok
+check getting bochs sources;    git clone --depth 1 ${bochs_src} >/dev/null 2>&1 && ok || nok
+check checking 386BSD 0.1;      ls -l BSD.tar.bz2                >/dev/null 2>&1 && ok || nok
 )|format
 
 

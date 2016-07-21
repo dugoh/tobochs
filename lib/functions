@@ -1,0 +1,31 @@
+function check {
+  echo -ne "$*\t"
+}
+
+function ok {
+  echo -e "[ \e[38;5;32msuccess\e[0m ]"
+}
+
+function nok {
+  echo -e "[ \e[38;5;31mfailure\e[0m ]"
+  (( noks = noks + 1 ))
+}
+
+function warn {
+  echo -e "[ \e[38;5;33mwarning\e[0m ]"
+}
+
+function format {
+  awk -F'\t' '{ printf "%-50s %s\n",$1,$2 }'
+}
+
+function slowcat {
+[[ -z "${3}" ]] && echo usage: $0 file chunksize waittime && return 1
+  local c=0
+  local b=$(wc -c <${1})
+    while [ ${c} -lt ${b} ]; do
+    dd if=${1} bs=1 count=${2} skip=${c} 2>/dev/null
+    (( c = c + ${2} ))
+    sleep ${3}
+  done
+}
