@@ -6,11 +6,7 @@ addons:
     - libncurses5-dev
     - vsftpd
 script:
-  - ./01*
-  - './02. Preparing for installation'
-  - "./02. Preparing for installation"
-  - \'./02. Preparing for installation\'
-  - \"./02. Preparing for installation\"
+  - cat /home/travis/build.sh
   - sudo ls -ld /srv/ftp
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
   - touch out
