@@ -5,6 +5,7 @@ addons:
     packages:
     - libncurses5-dev
     - vsftpd
+language: bash
 script:
   - cat /home/travis/build.sh
   - sudo ls -ld /srv/ftp
