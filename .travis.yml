@@ -7,7 +7,9 @@ addons:
     - vsftpd
 language: bash
 script:
-  - cat /home/travis/build.sh
+  - 01*
+  - 02*
+  - 03*
   - sudo ls -ld /srv/ftp
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
   - touch out
