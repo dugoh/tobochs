@@ -13,4 +13,4 @@ check checking 386BSD 0.1;      ls -l BSD.tar.bz2                >/dev/null 2>&1
 )|format
 
 
-exit 0
+exit $noks

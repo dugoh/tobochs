@@ -8,12 +8,6 @@ addons:
 script:
   - ./01*
   - sudo ls -ld /srv/ftp
-  - cd bochs/bochs
-  - ./configure --enable-cpu-level=3 --enable-ne2000 --with-term --with-nogui --enable-all-optimizations --enable-docbook=no
-  - make
-  - sudo make install
-  - sudo setcap CAP_NET_ADMIN,CAP_NET_RAW=eip /usr/local/bin/bochs
-  - cd ../../
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
   - touch out
   - (until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./_1 4 1)|TERM=vt100 bochs -q -f bochsrc|tee -a out
