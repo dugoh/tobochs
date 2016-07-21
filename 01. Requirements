@@ -7,12 +7,12 @@ function ok {
 }
 
 function nok {
-  echo -e "[ \e[38;5;31msuccess\e[0m ]"
+  echo -e "[ \e[38;5;31mfailure\e[0m ]"
   (( noks = noks + 1 ))
 }
 
 function warn {
-  echo -e "[ \e[38;5;33msuccess\e[0m ]"
+  echo -e "[ \e[38;5;33mwarning\e[0m ]"
 }
 
 function format {
