@@ -18,4 +18,4 @@ script:
   - printf "1\nhd\nflat\n504\ndisk.img\n" |bximage
   - touch out
   - (until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./_1 4 1)|TERM=vt100 bochs -q -f bochsrc|tee -a out
-  - './01. Requirements' 
+  - ./01* 
