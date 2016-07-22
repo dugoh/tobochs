@@ -8,5 +8,4 @@ check checking for free range;                 sudo ifconfig| fgrep -q ${range_i
 )|format
 cd $wd
 
-sudo ifconfig -a
 exit $noks

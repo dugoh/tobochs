@@ -1,0 +1,9 @@
+. lib/functions
+export noks=0
+
+ftproot=$(grep "^ftp:" /etc/passwd|cut -d ':' -f 6)
+(\
+check creating empty disk; printf "1\nhd\nflat\n504\ndisk.img\n" |bximage         >/dev/null 2>&1 && ok || nok
+)|format
+
+exit $noks

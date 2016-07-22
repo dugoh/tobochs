@@ -1,0 +1,10 @@
+. lib/functions
+export noks=0
+
+ftproot=$(grep "^ftp:" /etc/passwd|cut -d ':' -f 6)
+(\
+check creating boot floppy; (cat ${ftproot}/BSD/386bsd-0.1/bootable/dist.fs; \
+                                dd if=/dev/zero bs=1 count=245760)>boot.img           >/dev/null 2>&1 && ok || nok
+)|format
+
+exit $noks

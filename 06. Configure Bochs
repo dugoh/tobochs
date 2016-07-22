@@ -1,0 +1,9 @@
+. lib/functions
+export noks=0
+
+(\
+check bochs config present;                ls bochsrc                                   >/dev/null 2>&1 && ok || nok
+)|format
+cd $wd
+
+exit $noks
