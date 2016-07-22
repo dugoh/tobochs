@@ -1,9 +1,8 @@
 . lib/functions
 noks=0
 
-ftproot=$(grep "^ftp:" /etcpasswd|cut -d ':' -f 6)
+ftproot=$(grep "^ftp:" /etc/passwd|cut -d ':' -f 6)
 ftpconv=$(find /etc/ -name vsftpd.conf 2>/dev/null)
-echo $ftpconv
 wd=$(pwd)
 (\
 check opening anon ftp;                echo anonymous_enable=Yes \
@@ -13,5 +12,6 @@ check restarting vftpd;                sudo restart vsftpd                      
 check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |tar -xf -  >/dev/null 2>&1 && ok || nok
 )|format
 cd $wd
+cat $ftpconv
 
 exit $noks
