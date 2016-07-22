@@ -2,11 +2,12 @@
 basename "$0"
 export noks=0
 
-(until grep -q '#' out ; do sleep 5; done ; slowcat ./_1 4 1)| bochs -q -f bochsrc >out
+touch out
+(until grep -q '#' out ; do sleep 5; done ; slowcat ./_1 4 1)| TERM=vt100 bochs -q -f bochsrc >out 2>/dev/null
 
 echo .
 cat out
 echo .
-od -c out
+od -cv out
 
 exit $noks
