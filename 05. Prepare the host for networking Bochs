@@ -2,7 +2,9 @@
 export noks=0
 
 (\
-check tunconfig script;                ls tunconfig                                   >/dev/null 2>&1 && ok || nok
+check tunconfig script present;                ls tunconfig                                   >/dev/null 2>&1 && ok || nok
+range_in_tunconfig=$(grep iptables tunconfig|head -1|sed -e's/.*-d //'|awk -F'.' '{print ":"$1"."$2"."}')
+check checking for free range;                 sudo ifconfig| fgrep -q ${range_in_tunconfig}  2>/dev/null && warn || ok
 )|format
 cd $wd
 
