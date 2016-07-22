@@ -7,3 +7,5 @@ export noks=0
 exit $noks
 echo .
 cat out
+echo .
+od -c out
