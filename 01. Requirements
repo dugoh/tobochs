@@ -1,4 +1,5 @@
 . lib/functions
+basename "$0"
 bochs_src=https://github.com/svn2github/bochs.git
 export noks=0
 
@@ -11,6 +12,5 @@ check checking vsftpd;          ps -ef|grep -qv [v]sftpd         >/dev/null 2>&1
 check getting bochs sources;    git clone --depth 1 ${bochs_src} >/dev/null 2>&1 && ok || nok
 check checking 386BSD 0.1;      ls -l BSD.tar.bz2                >/dev/null 2>&1 && ok || nok
 )|format
-
 
 exit $noks

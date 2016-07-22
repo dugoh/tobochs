@@ -1,4 +1,5 @@
 . lib/functions
+basename "$0"
 bochs_src=https://github.com/svn2github/bochs.git
 export noks=0
 

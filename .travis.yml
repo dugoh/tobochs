@@ -15,5 +15,5 @@ script:
   - ./06*
   - ./07*
   - ./08*
-  - touch out
-  - (until grep -q '#' out ; do sleep 5; done ; ./ghetto_slowcat.sh ./_1 4 1)|TERM=vt100 bochs -q -f bochsrc|tee -a out
+  - ./09*
+  - ./10*

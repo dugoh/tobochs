@@ -1,4 +1,5 @@
 . lib/functions
+basename "$0"
 export noks=0
 
 (\
