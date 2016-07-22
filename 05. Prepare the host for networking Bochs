@@ -1,0 +1,10 @@
+. lib/functions
+export noks=0
+
+(\
+check tunconfig script;                ls tunconfig                                   >/dev/null 2>&1 && ok || nok
+)|format
+cd $wd
+
+sudo ifconfig -a
+exit $noks

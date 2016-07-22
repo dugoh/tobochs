@@ -1,6 +1,6 @@
 . lib/functions
 bochs_src=https://github.com/svn2github/bochs.git
-noks=0
+export noks=0
 
 (\
 check checking wget;            wget --help                      >/dev/null 2>&1 && ok || nok
