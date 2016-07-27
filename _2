@@ -1,0 +1,23 @@
+echo "machine 10.0.0.1" >.netrc
+echo "login ftp" >>.netrc
+echo "password news@EU.net" >>.netrc
+echo "macdef init" >>.netrc
+echo "#" >>.netrc
+echo "pasv" >>.netrc
+echo "prompt" >>.netrc
+echo "bin" >>.netrc
+echo "lcd /tmp" >>.netrc
+echo "cd BSD/386bsd-0.1/bindist/" >>.netrc
+echo "mget *" >>.netrc
+echo "cd ../etcdist/" >>.netrc
+echo "mget *" >>.netrc
+echo "cd ../srcdist/" >>.netrc
+echo "mget *" >>.netrc
+echo "cd ../../386bsd-patchkits" >>.netrc
+echo "mget *tar" >>.netrc
+echo "!echo odin |extract bin01" >>.netrc
+echo "!csh -c \"limit openfiles 512; extract src01 ; extract etc01 ; tar -cf /dist.tar /tmp/ ; cp pk023.tar /pk023.tar ; cp pk023024.tar /pk023024.tar ; sync ; sync ; sync ; /sbin/shutdown -r now\"" >>.netrc
+echo "quit" >>.netrc
+echo "#newl" >>.netrc
+echo "" >>.netrc
+chmod 400 .netrc
