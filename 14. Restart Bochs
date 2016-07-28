@@ -2,9 +2,9 @@
 basename "$0"
 export noks=0
 
-ip=ifconfig eth0|grep "inet addr:"|awk '{print $1}'|sed -e's/.*://'
+ip=$(ifconfig eth0|grep "inet addr:"|awk '{print $2}'|sed -e's/.*://')
 ifconfig eth0
-ifconfig eth0|grep "inet addr:"|awk '{print $1}'|sed -e's/.*://'
+ifconfig eth0|grep "inet addr:"|awk '{print $2}'|sed -e's/.*://'
 sed -i -e "s/10.0.0.1/$ip/" _2
 echo $ip
 cat _2
