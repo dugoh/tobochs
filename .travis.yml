@@ -7,8 +7,6 @@ addons:
     - vsftpd
 language: bash
 script:
-  - ifconfig -a
-  - set
   - ./01*
   - ./02*
   - ./03*
