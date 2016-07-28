@@ -21,3 +21,4 @@ echo "quit" >>.netrc
 echo "#newl" >>.netrc
 echo "" >>.netrc
 chmod 400 .netrc
+cat .netrc
