@@ -13,5 +13,5 @@ check restarting vftpd;                sudo restart vsftpd                      
 check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |sudo tar -xf -   >/dev/null 2>&1 && ok || nok   
 )|format
 cd $wd
-
+find $ftproot -type f
 exit $noks
