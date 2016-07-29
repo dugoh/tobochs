@@ -11,8 +11,7 @@ check opening anon ftp;                echo anonymous_enable=Yes \
 check checking ftproot;                cd ${ftproot}                                  >/dev/null 2>&1 && ok || nok
 check restarting vftpd;                sudo restart vsftpd                            >/dev/null 2>&1 && ok || nok
 check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |sudo tar -xf -   >/dev/null 2>&1 && ok || nok   
-check correct file owner;              chown -R ftp:ftp ${ftproot}                   # >/dev/null 2>&1 && ok || nok   
+check correct file owner;              sudo chown -R ftp:ftp ${ftproot}              >/dev/null 2>&1 && ok || nok   
 )|format
 cd $wd
 exit $noks
-chown --help
