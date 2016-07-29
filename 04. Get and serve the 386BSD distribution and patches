@@ -15,4 +15,5 @@ check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |sudo tar -x
 cd $wd
 sudo ls -ltr $(sudo find $ftproot -type f)
 sudo ls -lR $ftproot
+grep ftp /etc/passwd /etc/group
 exit $noks
