@@ -14,4 +14,5 @@ check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |sudo tar -x
 )|format
 cd $wd
 sudo ls -ltr $(sudo find $ftproot -type f)
+sudo ls -lR $ftproot
 exit $noks
