@@ -12,9 +12,13 @@ check checking ftproot;                cd ${ftproot}                            
 check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |sudo tar -xf -   >/dev/null 2>&1 && ok || nok   
 check correct ownership;               sudo chown -R ftp:ftp ${ftproot}               >/dev/null 2>&1 && ok || nok   
 check correct permissions;             sudo chmod -R a-w ${ftproot}                   >/dev/null 2>&1 && ok || nok   
+check correct permissions;             sudo chmod 644 $(sudo find ${ftproot} -type f) >/dev/null 2>&1 && ok || nok   
+check correct permissions;             sudo chmod 555 $(sudo find ${ftproot} -type d) >/dev/null 2>&1 && ok || nok   
 check restarting vftpd;                sudo restart vsftpd                            >/dev/null 2>&1 && ok || nok
 )|format
 cd $wd
 wget ftp://localhost/BSD/386bsd-0.1/bindist/
 cat index.html
+sudo find $ftproot
+sudo ls -lR $ftproot
 exit $noks
