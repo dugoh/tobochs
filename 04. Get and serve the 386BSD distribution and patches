@@ -15,5 +15,6 @@ check correct permissions;             sudo chmod -R a-w ${ftproot}             
 check restarting vftpd;                sudo restart vsftpd                            >/dev/null 2>&1 && ok || nok
 )|format
 cd $wd
-exit $noks
 wget ftp://localhost/
+
+exit $noks
