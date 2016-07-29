@@ -15,6 +15,6 @@ check correct permissions;             sudo chmod -R a-w ${ftproot}             
 check restarting vftpd;                sudo restart vsftpd                            >/dev/null 2>&1 && ok || nok
 )|format
 cd $wd
-wget ftp://localhost/
-
+wget ftp://localhost/BSD/386bsd-0.1/bindist/
+cat index.html
 exit $noks
