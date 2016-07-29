@@ -10,7 +10,7 @@ echo $ip
 cat _2
 
 >out
-(until grep -q '#' out ; do sleep 5; done ; sleep 5; slowcat ./_2 2 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
+(until grep -q '#' out ; do sleep 5; done ; sleep 5; slowcat ./_2 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
 
 echo .
 cat out
