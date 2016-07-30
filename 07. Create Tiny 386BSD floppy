@@ -10,5 +10,5 @@ ftproot=$(grep "^ftp:" /etc/passwd|cut -d ':' -f 6)
 dd if=/dev/zero bs=1 count=245760)>boot.img >/dev/null 2>&1
 check boot floppy;            ls boot.img >/dev/null 2>&1 && ok || nok
 )|format
-
+ls boot.img
 exit $noks
