@@ -1,0 +1,16 @@
+. lib/functions
+basename "$0"
+export noks=0
+
+clock: time0=711244800
+users-air:tobochs user$ #735327993
+sed -i -e 's/711244800/735327993/' bochsrc
+
+>out
+TERM=vt100 bochs -q -f bochsrc |tee -a out 
+cat out
+
+>out
+(until grep -q '#' out ; do sleep 5; done ; sleep 5; slowcat ./_3 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
+
+exit $noks
