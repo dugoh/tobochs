@@ -17,4 +17,6 @@ check correct directory permissions;   sudo chmod 555 $(sudo find ${ftproot} -ty
 check restarting vftpd;                sudo restart vsftpd                            >/dev/null 2>&1 && ok || nok
 )|format
 cd $wd
+sudo cat $ftpconv
+sudo find $ftproot
 exit $noks
