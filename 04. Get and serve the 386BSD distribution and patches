@@ -6,19 +6,15 @@ ftproot=$(grep "^ftp:" /etc/passwd|cut -d ':' -f 6)
 ftpconv=$(find /etc/ -name vsftpd.conf 2>/dev/null|fgrep -v init)
 wd=$(pwd)
 (\
-check opening anon ftp;                printf "anonymous_enable=Yes\nlocal_max_rate=1048576\n" \
+check opening anon ftp and rate limit; printf "anonymous_enable=Yes\nlocal_max_rate=1048576\n" \
                                                        |sudo tee -a ${ftpconv}        >/dev/null 2>&1 && ok || nok
 check checking ftproot;                cd ${ftproot}                                  >/dev/null 2>&1 && ok || nok
 check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |sudo tar -xf -   >/dev/null 2>&1 && ok || nok   
 check correct ownership;               sudo chown -R ftp:ftp ${ftproot}               >/dev/null 2>&1 && ok || nok   
-check correct permissions;             sudo chmod -R a-w ${ftproot}                   >/dev/null 2>&1 && ok || nok   
-check correct permissions;             sudo chmod 644 $(sudo find ${ftproot} -type f) >/dev/null 2>&1 && ok || nok   
-check correct permissions;             sudo chmod 555 $(sudo find ${ftproot} -type d) >/dev/null 2>&1 && ok || nok   
+check correct ftproot permissions;     sudo chmod -R a-w ${ftproot}                   >/dev/null 2>&1 && ok || nok   
+check correct file permissions;        sudo chmod 644 $(sudo find ${ftproot} -type f) >/dev/null 2>&1 && ok || nok   
+check correct directory permissions;   sudo chmod 555 $(sudo find ${ftproot} -type d) >/dev/null 2>&1 && ok || nok   
 check restarting vftpd;                sudo restart vsftpd                            >/dev/null 2>&1 && ok || nok
 )|format
 cd $wd
-wget ftp://localhost/BSD/386bsd-0.1/bindist/
-cat index.html
-sudo find $ftproot
-sudo ls -lR $ftproot
 exit $noks

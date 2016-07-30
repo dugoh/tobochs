@@ -15,7 +15,6 @@ echo "cd ../srcdist/" >>.netrc
 echo "mget *" >>.netrc
 echo "cd ../../386bsd-patchkits" >>.netrc
 echo "mget *tar" >>.netrc
-echo "!ls -l" >>.netrc
 echo "!echo odin |extract bin01" >>.netrc
 echo "!csh -c \"limit openfiles 512; extract src01 ; extract etc01 ; tar -cf /dist.tar /tmp/ ; cp pk023.tar /pk023.tar ; cp pk023024.tar /pk023024.tar ; sync ; sync ; sync ; /sbin/shutdown -r now\"" >>.netrc
 echo "quit" >>.netrc
@@ -26,8 +25,3 @@ cat .netrc
 ifconfig ne0 192.168.1.2 netmask 255.255.255.0 up
 route add default 192.168.1.1
 ftp 10.0.0.1
-rm .netrc
-ftp 10.0.0.1
-ftp
-news@eu.net
-ls BSD
