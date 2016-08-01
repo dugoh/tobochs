@@ -10,5 +10,6 @@ cat out
 
 >out
 (until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_3 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
+dd if=disk.img bs=512 count=1|od -v -tx1
 
 exit $noks
