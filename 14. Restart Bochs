@@ -11,5 +11,10 @@ cat _2
 
 >out
 (until grep -q '#' out ; do sleep 5; done ; sleep 5; slowcat ./_2 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
-
+echo making a copy
+cp disk.img orig.img
+echo compressing
+ls -l orig*
+bzip2 --best orig.img
+ls -l orig*
 exit $noks
