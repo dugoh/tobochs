@@ -6,7 +6,7 @@ ftproot=$(grep "^ftp:" /etc/passwd|cut -d ':' -f 6)
 ftpconv=$(find /etc/ -name vsftpd.conf 2>/dev/null|fgrep -v init)
 wd=$(pwd)
 (\
-check opening anon ftp and rate limit; printf "anonymous_enable=Yes\nanon_max_rate=1048576\ntrans_chunk_size=8192\n" \
+check opening anon ftp and rate limit; printf "anonymous_enable=Yes\nanon_max_rate=262144\ntrans_chunk_size=1024\n" \
                                                        |sudo tee -a ${ftpconv}        >/dev/null 2>&1 && ok || nok
 check checking ftproot;                cd ${ftproot}                                  >/dev/null 2>&1 && ok || nok
 check extracting distribution/patches; bunzip2 -c ${wd}/BSD.tar.bz2 |sudo tar -xf -   >/dev/null 2>&1 && ok || nok   
@@ -19,3 +19,5 @@ check restarting vftpd;                sudo restart vsftpd                      
 cd $wd
 
 exit $noks
+# TRIED
+# anon_max_rate=1048576\ntrans_chunk_size=8192
