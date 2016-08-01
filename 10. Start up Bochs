@@ -10,4 +10,5 @@ cat out
 fdisk -l disk.img
 echo .
 (echo b; echo p)|fdisk disk.img
+dd if=disk.img bs=512 count=1|od -v -tx1
 exit $noks
