@@ -8,4 +8,6 @@ echo $TERM
 
 cat out
 fdisk -l disk.img
+echo .
+(echo b; echo p)|fdisk disk.img
 exit $noks
