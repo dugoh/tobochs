@@ -14,13 +14,16 @@ cat _2
 echo making a copy
 cp disk.img orig.img
 echo compressing
-ls -l orig*
+ls -l orig.img
 bzip2 --best orig.img
-ls -l orig*
+ls -l orig.img.bz2
+echo splitting
+split -b 100m "orig.img.bz2" "orig.img.bz2.part-"
+
 
 mkdir page
 cd page
-mv ../orig* ./
+mv ../orig.img.bz2.part* ./
 git init
 git config user.name "${USER}"
 git config user.email "${GHP_MAIL}"
