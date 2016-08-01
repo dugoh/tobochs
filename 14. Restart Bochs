@@ -29,7 +29,8 @@ for file in $(ls|grep -v index.html); do (printf '<li><a href="' ; printf "${fil
 echo "</ul></BODY></HTML>" >>index.html
 git add .
 git commit -m "Deploy to GitHub Pages"
-git push --force --quiet https://${GHP_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master:gh-pages >/dev/null 2>&1
+#git push --force --quiet https://${GHP_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master:gh-pages >/dev/null 2>&1
+git push --force --quiet https://${GHP_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master:gh-pages
 cd ..  
 
 exit $noks
