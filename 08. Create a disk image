@@ -2,9 +2,12 @@
 basename "$0"
 export noks=0
 
-ftproot=$(grep "^ftp:" /etc/passwd|cut -d ':' -f 6)
-(\
-check creating empty disk; printf "1\nhd\nflat\n504\ndisk.img\n" |bximage         >/dev/null 2>&1 && ok || nok
-)|format
+
+#(\
+#check creating empty disk; printf "1\nhd\nflat\n504\ndisk.img\n" |bximage         >/dev/null 2>&1 && ok || nok
+#)|format
+
+printf "1\nhd\nflat\n504\ndisk.img\n" |bximage || \
+printf "hd\nflat\n504\ndisk.img\n" |bximage
 
 exit $noks
