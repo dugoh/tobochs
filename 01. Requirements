@@ -11,7 +11,7 @@ check checking ncurses;         ls -l /usr/include/ncurses.h     >/dev/null 2>&1
 check checking vsftpd;          ps -ef|grep -qv [v]sftpd         >/dev/null 2>&1 && ok || nok
 #check getting bochs sources;    git clone --depth 1 ${bochs_src} >/dev/null 2>&1 && ok || nok
 check getting bochs sources;    git clone ${bochs_src} >/dev/null 2>&1 && ok || nok
-cd bochs ; git reset --hard 8f62545739430b3bb65c332c3e7e672be56e2544; cd ..
+cd bochs ; git reset --hard af2a19af4d0aa9cf2917bab758d9f066891f3e84; cd ..
 check checking 386BSD 0.1;      ls -l BSD.tar.bz2                >/dev/null 2>&1 && ok || nok
 )|format
 
