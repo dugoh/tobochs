@@ -1,10 +1,8 @@
-while true ; do echo; echo XXX; echo ; sleep 10; done &
 echo "machine 10.0.0.1" >.netrc
 echo "login ftp" >>.netrc
 echo "password ftp@oldbsd.org" >>.netrc
 echo "macdef init" >>.netrc
 echo "#" >>.netrc
-echo "trace" >>.netrc
 echo "prompt" >>.netrc
 echo "bin" >>.netrc
 echo "lcd /tmp" >>.netrc
