@@ -4,7 +4,7 @@ export noks=0
 
 touch out
 echo $TERM
-(until grep -q '#' out ; do sleep 5; done ; slowcat ./_1 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out >/dev/null 2>&1
+(until grep -q '#' out ; do sleep 5; done ; slowcat ./_1 2 .1)| TERM=vt100 bochs -q -f bochsrc |tee -a out >/dev/null 2>&1
 
 cat out
 fdisk -l disk.img
