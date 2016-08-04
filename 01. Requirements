@@ -11,7 +11,7 @@ check checking ncurses;         ls -l /usr/include/ncurses.h     >/dev/null 2>&1
 check checking vsftpd;          ps -ef|grep -qv [v]sftpd         >/dev/null 2>&1 && ok || nok
 #check getting bochs sources;    git clone --depth 1 ${bochs_src} >/dev/null 2>&1 && ok || nok
 check getting bochs sources;    git clone ${bochs_src} >/dev/null 2>&1 && ok || nok
-cd bochs ; git reset --hard 64c7d07c0334ba9a149bb1056f6d097ccce447c0 ; cd ..
+cd bochs ; git reset --hard 7a4efbf95626d96114552f61b5910938171a8107 ; cd ..
 check checking 386BSD 0.1;      ls -l BSD.tar.bz2                >/dev/null 2>&1 && ok || nok
 )|format
 
@@ -48,6 +48,7 @@ exit $noks
 # a46338a779b521df747b24493e06b9ece3515a71 -- Jul 15, 2015 -
 # c5d9f2ef60b48c715648b79e8baf4ad9126f6827 -- May 25, 2015 X
 # 9363505650d83ac04759c43ca77fab78b901f0fe -- Jun 10, 2015 -  (fixes an fpu issue)
-# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 +++
+# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 ++++
+# 7a4efbf95626d96114552f61b5910938171a8107 -- Aug 10, 2015
 
 
