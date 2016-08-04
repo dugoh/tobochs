@@ -5,6 +5,10 @@ export noks=0
 
 (\
 check checking bochs sources;   cd bochs/bochs                   >/dev/null 2>&1 && ok || nok
+# Do 9363505650d83ac04759c43ca77fab78b901f0fe Jun 10, 2015 early
+ sed -i -e 's/ia_extensions_bitmask.0. = .1 << BX_ISA_X87.;/ia_extensions_bitmask[0] |= (1 << BX_ISA_X87);/' cpu/init.cc
+ head -60 cpu/init.cc|tail -12
+#
 check configuring bochs;        ./configure                  \
                                   --enable-cpu-level=3       \
                                   --enable-fpu               \
