@@ -48,7 +48,7 @@ exit $noks
 # a46338a779b521df747b24493e06b9ece3515a71 -- Jul 15, 2015 -
 # c5d9f2ef60b48c715648b79e8baf4ad9126f6827 -- May 25, 2015 X
 # 9363505650d83ac04759c43ca77fab78b901f0fe -- Jun 10, 2015 -     fixes an fpu issue
-# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 +++++  <-- right before FPU change
+# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 +++++++  <-- right before FPU change
 # 7a4efbf95626d96114552f61b5910938171a8107 -- Aug 10, 2015 +-    stalled at bin01.36
 # d714523d721b1d950d74b3da3a9822288081d2ee -- Sep 15, 2015 +++-  stalled at bin01.10
 # a2d1639425ff88c7c7faebc0911ecf97979a28c3 -- Oct  6, 2015 +-    stalled at src01.55
@@ -57,3 +57,4 @@ exit $noks
 # 2f9bd0480c01b09aac730b38dcee9de3dd1689df -- Oct 11, 2015 -     stalled at etc01.16
 # 691459290fd925180956b1f9b36c0c14c6d66806 -- Oct  9, 2015 -     stalled at etc01.51
 # 168212a25898e7adaf89ecab43103dbab069e238 -- Sep 16, 2015 -     stalled at etc01.51
+# REDo w/ 9363505650d83ac04759c43ca77fab78b901f0fe Jun 10, 2015 early
