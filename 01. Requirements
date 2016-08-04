@@ -47,7 +47,7 @@ exit $noks
 # 90259ead83a14aaca53c3a1df42e0eacf0a6c80c -- Apr 14, 2015 X
 # a46338a779b521df747b24493e06b9ece3515a71 -- Jul 15, 2015 -
 # c5d9f2ef60b48c715648b79e8baf4ad9126f6827 -- May 25, 2015 X
-# 9363505650d83ac04759c43ca77fab78b901f0fe -- Jun 10, 2015 -  (fixes fpu issue?)
-# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 ++
+# 9363505650d83ac04759c43ca77fab78b901f0fe -- Jun 10, 2015 -  (fixes an fpu issue)
+# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 +++
 
 
