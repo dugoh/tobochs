@@ -1,7 +1,7 @@
 . lib/functions
 basename "$0"
 bochs_src=https://github.com/svn2github/bochs.git
-goodrev=4a827badc45ba6289cd7e77067bab1a3ccb9bd73
+goodrev=a590631d9af6bd153393dae9daaa81a161962636
 export noks=0
 
 (\
