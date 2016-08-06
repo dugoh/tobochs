@@ -1,66 +1,20 @@
 . lib/functions
 basename "$0"
 bochs_src=https://github.com/svn2github/bochs.git
+goodrev=4a827badc45ba6289cd7e77067bab1a3ccb9bd73
 export noks=0
 
 (\
-check checking wget;            wget --help                      >/dev/null 2>&1 && ok || nok
-check checking gcc;             gcc --version                    >/dev/null 2>&1 && ok || nok
-check checking gcc-c++;         g++ --version                    >/dev/null 2>&1 && ok || nok
-check checking ncurses;         ls -l /usr/include/ncurses.h     >/dev/null 2>&1 && ok || nok
-check checking vsftpd;          ps -ef|grep -qv [v]sftpd         >/dev/null 2>&1 && ok || nok
-#check getting bochs sources;    git clone --depth 1 ${bochs_src} >/dev/null 2>&1 && ok || nok
-check getting bochs sources;    git clone ${bochs_src} >/dev/null 2>&1 && ok || nok
-cd bochs ; git reset --hard 4a827badc45ba6289cd7e77067bab1a3ccb9bd73 ; cd ..
-check checking 386BSD 0.1;      ls -l BSD.tar.bz2                >/dev/null 2>&1 && ok || nok
+check checking wget;             wget --help                      >/dev/null 2>&1 && ok || nok
+check checking gcc;              gcc --version                    >/dev/null 2>&1 && ok || nok
+check checking gcc-c++;          g++ --version                    >/dev/null 2>&1 && ok || nok
+check checking ncurses;          ls -l /usr/include/ncurses.h     >/dev/null 2>&1 && ok || nok
+check checking vsftpd;           ps -ef|grep -qv [v]sftpd         >/dev/null 2>&1 && ok || nok
+check getting bochs sources;     git clone ${bochs_src}           >/dev/null 2>&1 && ok || nok
+cd bochs
+check reset to working revision; git reset --hard ${goodrev}      >/dev/null 2>&1 && ok || nok
+cd ..
+check checking 386BSD 0.1;       ls -l BSD.tar.bz2                >/dev/null 2>&1 && ok || nok
 )|format
 
 exit $noks
-# f4d60f6a25b65f2ba0b48121e472fd870a3b885e -- Feb  1, 2013 +
-# ef7efc3315ce6e5892ae87c5f8e86bc2ce43d4f0 -- Mar 10, 2014 +
-# a2d1639425ff88c7c7faebc0911ecf97979a28c3 -- Oct  6, 2015 +
-# 4e49c66dd60268308fb29ece84d3cb9fb36a44ee -- Jan  8, 2016 -+
-# 73af5783cf2a4023f5b51e71ae37dc1ac1e655fa -- Dec  6, 2015 -
-# ce4f6d7abc94d2a5fe893f762675d089c0942055 -- Aug 11, 2015 -
-# 106fc4dce13bc06e898e6f8198d1b3a7bbf354e8 -- Mar 23, 2015 ++
-# 8f62545739430b3bb65c332c3e7e672be56e2544 -- Oct 21, 2014 X
-# 5d412a1194cd61657c42e24b2ecbc2cc131c60cc -- Dec 27, 2014 ++
-# af2a19af4d0aa9cf2917bab758d9f066891f3e84 -- Nov  1, 2014 ++
-# 471f304b279e840c71a4a479ff2e0e5562628ef1 -- May 12, 2015 --- X
-# a46338a779b521df747b24493e06b9ece3515a71 -- Jul 15, 2015 -
-# 08966b0ad3cc37b2ba0076f37fe667f086ef41d8 -- Jun 29, 2015 ++-
-# 2b3707c5d52aa9c9eba1f5c7a1ea69fd5faa461b -- Jul  7, 2015 +-
-# f6ea17dbccff5d9f7da24eac828d02f2bc6c18c1 -- Jul 12, 2015 -
-# 4b35bcd8ab057ed4b829f08c74adc7f18a715d9d -- Jul 12, 2015 -+
-# bcb01612553bbcc4441563eae0e6bc9a014bbff2 -- Jul 12, 2015 -
-# 978c446cab43ca0a375441a935b7be0058b8525f -- Jul 12, 2015 -
-# 17e9257944ce07b0c51a1f243a618b66d0833a2c -- Dec 30, 2014 +
-# 90259ead83a14aaca53c3a1df42e0eacf0a6c80c -- Apr 14, 2015 X
-# a590631d9af6bd153393dae9daaa81a161962636 -- May  9, 2015
-# e6bfb971c3201c6286ca63ce92279543688d416d -- Mar 15, 2015 +
-# 13ce6dda9818888129d7918de540dc4ea01011b7 -- Mar 21, 2015 +
-# c355ae594cc2baf4a8aeafd836f749964810343f -- Mar 29, 2015 -
-# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 +
-# 064e0d84b94b3872cbb81a4e654c582ec10ccdff -- Mar 27, 2015 <- bah
-# REDO FROM START w/ --enable-fpu
-# 3a680c20c1a1cec7dd72f978d998f12c5b639f64 -- "today"
-# 90259ead83a14aaca53c3a1df42e0eacf0a6c80c -- Apr 14, 2015 X
-# a46338a779b521df747b24493e06b9ece3515a71 -- Jul 15, 2015 -
-# c5d9f2ef60b48c715648b79e8baf4ad9126f6827 -- May 25, 2015 X
-# 9363505650d83ac04759c43ca77fab78b901f0fe -- Jun 10, 2015 -     fixes an fpu issue
-# 64c7d07c0334ba9a149bb1056f6d097ccce447c0 -- Mar 27, 2015 +++++++  <-- right before FPU change
-# 7a4efbf95626d96114552f61b5910938171a8107 -- Aug 10, 2015 +-    stalled at bin01.36
-# d714523d721b1d950d74b3da3a9822288081d2ee -- Sep 15, 2015 +++-  stalled at bin01.10
-# a2d1639425ff88c7c7faebc0911ecf97979a28c3 -- Oct  6, 2015 +-    stalled at src01.55
-# e03bb57d9fc0ea3e8732d1d96456ff117b33b00e -- Nov 20, 2015 -     not even startarts
-# 1515c72651027cb83940b65cef6cae1b67a6af48 -- Nov  2, 2015 -     not even startarts
-# 2f9bd0480c01b09aac730b38dcee9de3dd1689df -- Oct 11, 2015 -     stalled at etc01.16
-# 691459290fd925180956b1f9b36c0c14c6d66806 -- Oct  9, 2015 -     stalled at etc01.51
-# 168212a25898e7adaf89ecab43103dbab069e238 -- Sep 16, 2015 -     stalled at etc01.51
-# REDo w/ 9363505650d83ac04759c43ca77fab78b901f0fe Jun 10, 2015 early
-# 064e0d84b94b3872cbb81a4e654c582ec10ccdff -- Mar 27, 2015 ++    was bah
-# dcd907cfc6f7dd369b03836b06ccda828043525a -- Apr 19, 2015 +
-# 4a827badc45ba6289cd7e77067bab1a3ccb9bd73 -- May 10, 2015 - <--
-# 6a6a7d3695db13b320d2fe4c53b3f89cd4ede425 -- May  5, 2015 +
-# a590631d9af6bd153393dae9daaa81a161962636 -- May  9, 2015 ++++++
-# 7481a1f06947ae4c16a83d9df08d681c7977bc1d -- May 16, 2015
