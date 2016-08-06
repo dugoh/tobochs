@@ -17,7 +17,7 @@ function warn {
 }
 
 function format {
-  awk -F'\t' '{ printf "%-50s %s\n",$1,$2 }'
+  awk -F'\t' '{ printf "%-60s %s\n",$1,$2 }'
 }
 
 function slowcat {
