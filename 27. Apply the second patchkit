@@ -1,0 +1,10 @@
+. lib/functions
+basename "$0"
+export noks=0
+
+sed -i -e 's/735327993/740756888/' bochsrc
+
+>out
+(until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_5 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
+
+exit $noks
