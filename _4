@@ -1,0 +1,12 @@
+root
+
+exec sh
+cat >/do <<"__EOF"
+#!/bin/sh
+cd /patch/bin
+./buildworld.sh
+sync; sync; sync
+shutdown -rf now
+__EOF
+chmod +x /do
+/do
