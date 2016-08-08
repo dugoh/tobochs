@@ -6,5 +6,41 @@ sed -i -e 's/735327993/740756888/' bochsrc
 
 >out
 (until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_5 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
+cp out out_27.txt
+
+
+echo making a copy
+cp disk.img orig.img
+echo compressing
+ls -l orig.img
+bzip2 --best orig.img
+ls -l orig.img.bz2
+echo splitting
+split -b 100m "orig.img.bz2" "orig.img.bz2.part-"
+
+
+mkdir page
+cd page
+mv ../orig.img.bz2.part* ../out*.txt ./
+git init
+git config user.name "${USER}"
+git config user.email "${GHP_MAIL}"
+echo "<HTML><HEAD><TITLE>LINKS</TITLE></HEAD><BODY><ul>" >index.html
+for file in $(ls|grep -v index.html); do \
+  (\
+    printf '<li><a href="' ; \
+    printf "${file}" ; \
+    printf '">' ; \
+    printf "${file}" ; \
+    printf '</a></li>\n' \
+  ) >>index.html ; \
+done
+echo "</ul></BODY></HTML>" >>index.html
+git add .
+git commit -m "Deploy to GitHub Pages"
+git push --force --quiet https://${GHP_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master:gh-pages
+cd ..
+
+
 
 exit $noks

@@ -8,7 +8,14 @@ sed -i -e 's/711244800/735327993/' bochsrc
 TERM=vt100 bochs -q -f bochsrc |tee -a out 
 cat out
 
+cp out out_18a.txt
+
+
+
 >out
 (until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_3 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
+
+cp out out_18b.txt
+
 
 exit $noks

@@ -4,6 +4,6 @@ export noks=0
 
 touch out
 (until grep -q '#' out ; do sleep 5; done ; slowcat ./_1 2 .1)| TERM=vt100 bochs -q -f bochsrc |tee -a out
-cp out out_1.txt
+cp out out_10.txt
 
 exit $noks

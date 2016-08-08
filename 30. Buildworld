@@ -4,5 +4,5 @@ export noks=0
 
 >out
 (until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_4 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
-
+cp out out_30.txt
 exit $noks
