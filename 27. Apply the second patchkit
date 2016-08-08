@@ -16,7 +16,7 @@ ls -l orig.img
 bzip2 --best orig.img
 ls -l orig.img.bz2
 echo splitting
-split -b 100m "orig.img.bz2" "orig.img.bz2.part-"
+split -b 50m "orig.img.bz2" "orig.img.bz2.part-"
 
 
 mkdir page
