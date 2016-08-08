@@ -1,0 +1,87 @@
+========================================================================
+                     Bochs x86 Emulator 2.6.8.svn
+              Built from SVN snapshot after release 2.6.8
+                  Compiled on Aug  8 2016 at 16:19:27
+========================================================================
+(B)0[1;40r[m[?7h[?1h=[H[J[H[J[25B[0mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq[26;1H[0m[H[0;1mPlex86/Bochs VGABios (PCI) current-cvs 08 Jul 2014
+This VGA/VBE Bios is released under the GNU LGPL
+
+Please visit :
+ . http://bochs.sourceforge.net
+ . http://www.nongnu.org/vgabios
+
+NO Bochs VBE Support available!
+
+[mBochs BIOS - build: 12/26/14
+$Revision: 12579 $ $Date: 2014-12-26 11:31:39 +0100 (Fr, 26. Dez 2014) $
+Options: apmbios pcibios pnpbios eltorito
+
+ata0 master: generic ATA-6 Hard-Disk ( 504 MBytes)
+
+Press F12 for boot menu.
+
+Booting from Hard Disk...
+Boot failed: not a bootable disk
+
+Booting from Floppy...
+[1;25r[25;1H
+[1;40r[21;1H[0;1m386BSD Release 0.1 by William and Lynne Jolitz.[m [0.1.24  07/14/92 19:07]
+Copyright (c) 1989,1990,1991,1992 William F. Jolitz. All rights reserved.
+Based in part on work by the 386BSD User Community and the
+BSD Networking Software, Release 2 by UCB EECS Department.
+[1;25r[25;1H
+
+
+
+
+
+[1;40r[19;1Hpc0<color> at 0x60 irq 1 on isa
+wd0 <generic> at 0x1f0 irq 14 on isa
+fd0 drives 0: 1.44M at 0x3f0 irq 6 drq 2 on isa
+ne0 ethernet address fe:fd:00:00:00:01 at 0x300 irq 9 on isa
+npx0 at 0xf0 irq 13 on isa
+changing root device to fd0a[24;59H[1;25r[25;1H
+
+[1;40r[24;1Hwarning: no swap space present (yet)
+[1;25r[25;1H
+
+
+
+
+
+
+[1;40r[18;1H386BSD Distribution Installation Floppy (Tiny 386BSD) Release 0.1
+
+Please read the installation notes (type 'zmore INSTALL.NOTES')
+and registration information (type 'more REGISTRATION') before use.
+To install on hard disk drive, type 'install'.
+
+erase ^?, werase ^H, kill ^U, intr ^C
+# (echo y; echo y)|insta7[1;25r8
+[1;40r[24;25Hll
+[H[K
+Please read the installation notes (type 'zmore INSTALL.NOTES')
+and registration information (type 'more REGISTRATION') before use.
+To install on hard disk drive, type 'install'.
+[K
+erase ^?, werase ^H, kill ^U, intr ^C[K
+# (echo y; echo y)|install                                
+Do you want to install 386BSD on the ENTIRE drive? (y/n) You realize this means
+you lose the old contents of this drive.
+Do you *still* want to install 386BSD on the entire drive? (y/n)High level forma[11;1Htting of 386BSD disk storage:                  
+/dev/rwd0a:     1020096 sectors in 1012 cylinders of 16 tracks, 63 sectors
+        522.3MB in 64 cyl groups (16 c/g, 8.26MB/g, 1920 i/g)
+super-block backups (for fsck -b #) at:
+ 32, 16224, 32416, 48608, 64800, 80992, 97184, 113376, 129568,
+ 145760, 161952, 178144, 194336, 210528, 226720, 242912, 258080, 274272,
+ 290464, 306656, 322848, 339040, 355232, 371424, 387616, 403808, 420000,
+ 436192, 452384, 468576, 484768, 500960, 516128, 532320, 548512, 564704,
+ 580896, 597088, 613280, 629472, 645664, 661856, 678048, 694240, 710432,
+ 726624, 742816, 759008, 774176, 790368, 806560, 822752, 838944, 855136,
+ 871328, 887520, 903712, 919904, 936096, 952288, 968480, 984672, 1000864,
+ 1017056,
+Mounting 386BSD filesystem.          
+Installing files from installation floppy.
+7[1;25r8
+[1;40r[24;1HExtracting the distribution utilities from the installation floppy.
+[H[J[40;1H[?1l>

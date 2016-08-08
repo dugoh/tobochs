@@ -1,0 +1,39 @@
+========================================================================
+                     Bochs x86 Emulator 2.6.8.svn
+              Built from SVN snapshot after release 2.6.8
+                  Compiled on Aug  8 2016 at 16:19:27
+========================================================================
+(B)0[1;40r[m[?7h[?1h=[H[J[H[J[25B[0mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq[26;1H[0m[H[0;1m . http://bochs.sourceforge.net
+ . http://www.nongnu.org/vgabios
+
+NO Bochs VBE Support available!
+
+[mBochs BIOS - build: 12/26/14
+$Revision: 12579 $ $Date: 2014-12-26 11:31:39 +0100 (Fr, 26. Dez 2014) $
+Options: apmbios pcibios pnpbios eltorito
+
+ata0 master: generic ATA-6 Hard-Disk ( 504 MBytes)
+
+Press F12 for boot menu.
+
+Booting from Hard Disk...
+[0;1m386BSD Release 0.1 by William and Lynne Jolitz.[m [0.1.24  07/14/92 19:07]
+Copyright (c) 1989,1990,1991,1992 William F. Jolitz. All rights reserved.
+Based in part on work by the 386BSD User Community and the
+BSD Networking Software, Release 2 by UCB EECS Department.
+pc0<color> at 0x60 irq 1 on isa
+wd0 <generic> at 0x1f0 irq 14 on isa
+fd0 drives 0: 1.44M at 0x3f0 irq 6 drq 2 on isa
+ne0 ethernet address fe:fd:00:00:00:01 at 0x300 irq 9 on isa
+npx0 at 0xf0 irq 13 on isa
+[0;1mAutomatic reboot in progress...
+[K[m[1;24r[24;1H
+
+
+
+
+
+
+[1;40r[18;1H[0;1m/dev/rwd0a: UNREF FILE I=1954  OWNER=root MODE=60644                            [19;1H/dev/rwd0a: SIZE=0 MTIME=Sep 14 19:02 1991  (CLEARED)                           [20;1H/dev/rwd0a: FREE BLK COUNT(S) WRONG IN SUPERBLK (SALVAGED)                      [21;1H/dev/rwd0a: BLK(S) MISSING IN BIT MAPS (SALVAGED)                               [22;1H/dev/rwd0a: SUMMARY INFORMATION BAD (SALVAGED)[K
+/dev/rwd0a: 13191 files, 180966 used, 312681 free (713 frags, 38996 blocks, 0.1%[24;1H fragmentation)[K
+[m[H[J[40;1H[?1l>
