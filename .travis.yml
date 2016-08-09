@@ -12,7 +12,8 @@ script:
   - cd qemu
   - git reset --hard 08fd2f30bd3ee5d04596da8293689af4d4f7eb6c
   - ./configure --help
-  - ./configure --target-list=i386-softmmu
+  - ./configure --target-list=i386-softmmu  --static --disable-sdl --disable-vnc-tls --disable-vnc-sasl --disable-vde
+  - make
   #i386-softmmu
   #- ./01*
   #- ./02*
