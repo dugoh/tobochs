@@ -8,13 +8,13 @@ addons:
 language: bash
 script:
   - uname -a
-  - cat vl.c
   - git clone https://github.com/qemu/qemu.git
   - cd qemu
   - git reset --hard 08fd2f30bd3ee5d04596da8293689af4d4f7eb6c
   - ./configure --help
   #- ./configure --target-list=i386-softmmu --disable-sdl --disable-vnc-tls --disable-vnc-sasl --disable-vde   --extra-ldflags=-lrt
   - ./configure --target-list=i386-softmmu --disable-sdl --disable-vnc-tls --disable-vnc-sasl --disable-vde   --extra-cflags=-lrt --extra-ldflags=-lrt
+  - cat vl.c
   - make -d 
   #- ./01*
   #- ./02*
