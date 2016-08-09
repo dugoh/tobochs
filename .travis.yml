@@ -9,7 +9,10 @@ addons:
 language: bash
 script:
   - uname -a
-  - sudo find / -name qemu*
+  - git clone https://github.com/qemu/qemu.git
+  - cd qemu
+  - git reset --hard 08fd2f30bd3ee5d04596da8293689af4d4f7eb6c
+  - ./configure
   #- ./01*
   #- ./02*
   #- ./03*
