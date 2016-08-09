@@ -5,14 +5,15 @@ addons:
     packages:
     - libncurses5-dev
     - vsftpd
-    - qemu-system
 language: bash
 script:
   - uname -a
   - git clone https://github.com/qemu/qemu.git
   - cd qemu
   - git reset --hard 08fd2f30bd3ee5d04596da8293689af4d4f7eb6c
-  - ./configure
+  - ./configure --help
+  - ./configure --target-list=i386-softmmu
+  #i386-softmmu
   #- ./01*
   #- ./02*
   #- ./03*
