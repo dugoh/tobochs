@@ -8,6 +8,7 @@ addons:
 language: bash
 script:
   - uname -a
+  - man timer_create
   - git clone https://github.com/qemu/qemu.git
   - cd qemu
   - git reset --hard 08fd2f30bd3ee5d04596da8293689af4d4f7eb6c
