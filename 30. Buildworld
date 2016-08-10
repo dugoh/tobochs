@@ -41,7 +41,7 @@ gcc -g -Wl,--warn-common  -m64 -static -o qemu \
                                      pci-hotplug.o smbios.o \
                                      -Wl,--whole-archive ../libqemu_common.a libqemu.a ../libhw64/libqemuhw64.a \
                                      -Wl,--no-whole-archive \
-                                     -lm -lpthread -lz -lutil -lncurses -ltinfo -lrt 
+                                     -lm -lrt -lpthread -lz -lutil -lncurses -ltinfo 
 #                 >/dev/null 2>&1 && ok || nok
 cd ..
 check continue make qemu;            make                                                     >/dev/null 2>&1 && ok || nok
