@@ -21,7 +21,7 @@ check configure qemu;            ./configure --target-list=i386-softmmu \
 #check make qemu;                 make                                                         >/dev/null 2>&1 && ok || nok
 make V=1
 cd i386-softmmu
-check build where make fails;    gcc -g -Wl,--warn-common  -m64  -o qemu \
+check build where make fails;    gcc -g -Wl,--warn-common  -m64 -static -o qemu \
                                      vl.o osdep.o monitor.o pci.o loader.o \
                                      isa_mmio.o machine.o gdbstub.o gdbstub-xml.o \
                                      msix.o ioport.o virtio-blk.o \
