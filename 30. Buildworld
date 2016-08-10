@@ -12,17 +12,17 @@ basename "$0"
 export noks=0
 
 (\
-check getting qemu source;       git clone https://github.com/qemu/qemu.git                  >/dev/null 2>&1 && ok || nok
+check getting qemu source;       git clone https://github.com/qemu/qemu.git                   >/dev/null 2>&1 && ok || nok
 cd qemu
-check going back to 0.11;        git reset --hard 08fd2f30bd3ee5d04596da8293689af4d4f7eb6c   >/dev/null 2>&1 && ok || nok
-check remove definition of BIT;  sed -i -e 's/#define BIT.n. .1 << .n../\/\/&/' hw/eepro100. >/dev/null 2>&1 && ok || nok
-check define BIT properly;       printf "#ifndef BIT\n#define BIT(n) (1 << (n))\n#endif\n" >>qemu-common.h   && ok || nok
+check going back to 0.11;        git reset --hard 08fd2f30bd3ee5d04596da8293689af4d4f7eb6c    >/dev/null 2>&1 && ok || nok
+check remove definition of BIT;  sed -i -e 's/#define BIT.n. .1 << .n../\/\/&/' hw/eepro100.c >/dev/null 2>&1 && ok || nok
+check define BIT properly;       printf "#ifndef BIT\n#define BIT(n) (1 << (n))\n#endif\n" >> qemu-common.h   && ok || nok
 check configure qemu;            ./configure --target-list=i386-softmmu \
                                              --disable-sdl \
                                              --disable-vnc-tls \
                                              --disable-vnc-sasl \
-                                             --disable-vde                                   >/dev/null 2>&1 && ok || nok
-check make qemu;                 make                                                        >/dev/null 2>&1 && ok || nok
+                                             --disable-vde                                    >/dev/null 2>&1 && ok || nok
+check make qemu;                 make                                                         >/dev/null 2>&1 && ok || nok
 cd i386-softmmu
 check build where make fails;    gcc -g -Wl,--warn-common  -m64  -o qemu \
                                      vl.o osdep.o monitor.o pci.o loader.o \
@@ -39,10 +39,9 @@ check build where make fails;    gcc -g -Wl,--warn-common  -m64  -o qemu \
                                      pci-hotplug.o smbios.o \
                                      -Wl,--whole-archive ../libqemu_common.a libqemu.a ../libhw64/libqemuhw64.a \
                                      -Wl,--no-whole-archive \
-                                     -lm -lpthread -lz -lutil -lncurses -lrt                 >/dev/null 2>&1 && ok || nok
+                                     -lm -lpthread -lz -lutil -lncurses -lrt                  >/dev/null 2>&1 && ok || nok
 cd ..
-check continue make qemu;            make                                                    >/dev/null 2>&1 && ok || nok
-
+check continue make qemu;            make                                                     >/dev/null 2>&1 && ok || nok
 )|format
 sudo make install
 find ./
@@ -50,9 +49,5 @@ sudo find / -name "qemu*"
 echo =========
 sudo find / -name "*bios*"
 cd ..
-
-exit $noks
-
-
 
 exit $noks
