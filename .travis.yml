@@ -15,7 +15,12 @@ script:
   #- ./configure --target-list=i386-softmmu --disable-sdl --disable-vnc-tls --disable-vnc-sasl --disable-vde   --extra-ldflags=-lrt
   - ./configure --target-list=i386-softmmu --disable-sdl --disable-vnc-tls --disable-vnc-sasl --disable-vde   --extra-cflags=-lrt --extra-ldflags=-lrt
   - cat vl.c
-  - make -d 
+  - echo
+  - echo ==================================================================================
+  - cat Makefile
+  - echo
+  - echo ==================================================================================
+  - make
   #- ./01*
   #- ./02*
   #- ./03*
