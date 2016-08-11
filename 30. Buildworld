@@ -7,7 +7,6 @@ export noks=0
 ##(until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_4 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
 ##cp out out_30.txt
 
-./configure --help
 (\
 check getting qemu source;       git clone https://github.com/qemu/qemu.git                   >/dev/null 2>&1 && ok || nok
 cd qemu
