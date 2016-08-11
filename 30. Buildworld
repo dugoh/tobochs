@@ -38,10 +38,12 @@ check build where make fails;    gcc -g -Wl,--warn-common  -m64 -static -o qemu 
                                      -Wl,--no-whole-archive \
                                      -lm -lrt -lpthread -lz -lutil -lncurses -ltinfo          >/dev/null 2>&1 && ok || nok
 cd ..
-#check continue make qemu;            make                                                     >/dev/null 2>&1 && ok || nok
-)|format
+pwd
 make
 sudo make install
+
+#check continue make qemu;            make                                                     >/dev/null 2>&1 && ok || nok
+)|format
 find ./
 sudo find / -name "qemu*"
 echo =========
