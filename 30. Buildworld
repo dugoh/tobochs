@@ -42,6 +42,8 @@ check make install qemu;             sudo make install                          
 )|format
 
 qemu --help
+# qemu-img convert -f raw -O qcow2 disk.img qdisk.img 
+
 cd ..
 
 exit $noks
