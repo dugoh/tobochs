@@ -6,6 +6,10 @@ addons:
     - libncurses5-dev
     - vsftpd
 language: bash
+
+before_script:
+  - ulimit -c unlimited -S
+  
 script:
   #- ./01*
   #- ./02*
