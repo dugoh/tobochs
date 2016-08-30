@@ -2,11 +2,12 @@
 basename "$0"
 export noks=0
 
-#  This is taking waaaay toooo looong w/ bochs. Trying ancient qemu
-##>out
-##(until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_4 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
-##cp out out_30.txt
+#  This is taking waaaay toooo looong w/ bochs. Maybe try ancient qemu?
+>out
+(until grep -q 'login:' out ; do sleep 5; done ; sleep 5; slowcat ./_4 4 1)| TERM=vt100 bochs -q -f bochsrc |tee -a out 
+cp out out_30.txt
 
+exit
 (\
 check getting qemu source;       git clone https://github.com/qemu/qemu.git                   >/dev/null 2>&1 && ok || nok
 cd qemu
