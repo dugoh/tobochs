@@ -1,7 +1,9 @@
 . lib/functions
 basename "$0"
 bochs_src=https://github.com/svn2github/bochs.git
-goodrev=a590631d9af6bd153393dae9daaa81a161962636
+latestrev=3bd68d76bf5a1887e4793f32800b80fd3b3c9fed
+lastknowngoodrev=a590631d9af6bd153393dae9daaa81a161962636
+revtouse=$lastknowngoodrev
 export noks=0
 
 (\
@@ -12,7 +14,7 @@ check checking ncurses;          ls -l /usr/include/ncurses.h     >/dev/null 2>&
 check checking vsftpd;           ps -ef|grep -qv [v]sftpd         >/dev/null 2>&1 && ok || nok
 check getting bochs sources;     git clone ${bochs_src}           >/dev/null 2>&1 && ok || nok
 cd bochs
-check reset to working revision; git reset --hard ${goodrev}      >/dev/null 2>&1 && ok || nok
+check reset to working revision; git reset --hard ${revtouse}      >/dev/null 2>&1 && ok || nok
 cd ..
 check checking 386BSD 0.1;       ls -l BSD.tar.bz2                >/dev/null 2>&1 && ok || nok
 )|format
