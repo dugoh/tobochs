@@ -1,12 +1,12 @@
 root
 
 exec sh
-cat >/do <<"__EOF"
+cat >/_4 <<"__EOF"
 #!/bin/sh
 cd /patch/bin
 ./buildworld.sh
 sync; sync; sync
 shutdown -rf now
 __EOF
-chmod +x /do
-/do
+chmod +x /_4
+/_4
