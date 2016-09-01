@@ -3,7 +3,7 @@ basename "$0"
 bochs_src=https://github.com/svn2github/bochs.git
 latestrev=3bd68d76bf5a1887e4793f32800b80fd3b3c9fed
 lastknowngoodrev=a590631d9af6bd153393dae9daaa81a161962636
-revtouse=$lastknowngoodrev
+revtouse=$latestrev
 export noks=0
 
 (\
