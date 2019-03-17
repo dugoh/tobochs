@@ -1,15 +1,12 @@
 # tobochs
-An attempt to redo http://gunkies.org/wiki/Installing_386BSD_on_BOCHS
-The guide was made in 2010 for a manual install on an AWS Fedora Core 8 box.
 
-This is an attempt to do a fully automated reproducible build on a Travis CI Ubuntu Trusty box.
+This is a failed attempt to do a fully automated reproducible build on a Travis CI Ubuntu Trusty box in one go using this guide http://gunkies.org/wiki/Installing_386BSD_on_BOCHS.
 
-See https://travis-ci.org/dugoh/tobochs for the latest attempt and
-artifacts are pushed to https://dugoh.github.io/tobochs/
+- At the time bochs froze up most of the time when downloading the full distribution.
+- Bochs is slow and Travis only gives you about an hour.
+- Qemu is faster but can't boot the original distribution without patching up the kernel.
+- A full buildworld still takes too long.
 
-The build is hit and miss for now as Tiny 386BSD freezes up most of the time when downloading the full distribution.
-Probably due to a threading issue with bochs or the Linux kernels in use.
-This and other beef with bochs @ https://sourceforge.net/p/bochs/mailman/bochs-developers/?viewmonth=201608
+The build is now spread over multiple repositories. See:
 
-Workaround is using a known good bochs revision, experimenting with different log levels now.
-If all else fails bail and try to beat qemu into submission instead. A full rebuild of 386BSD is taking too long on bochs anyway. Well, too long for travis anyway.
+https://github.com/dugoh/386bsd0.1
